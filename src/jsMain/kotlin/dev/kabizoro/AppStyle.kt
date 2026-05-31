@@ -5,18 +5,18 @@ import org.jetbrains.compose.web.css.*
 object AppStyles : StyleSheet() {
 
     // ── Variables ────────────────────────────────────────────────────────────
-    val green = "#00F15E"
-    val green30 = "rgba(0,241,94,0.3)"
-    val green10 = "rgba(0,241,94,0.1)"
-    val green05 = "rgba(0,241,94,0.05)"
-    val bg = "#080707"
-    val surface = "#232624"
-    val muted = "#87938C"
-    val muted40 = "rgba(135,147,140,0.4)"
-    val white = "#FAFAFA"
-    val red = "#BB3D3D"
-    val red05 = "rgba(187,61,61,0.05)"
-    val purple = "#7F52FF"
+    val green = Color("#00F15E")
+    val green30 = Color("rgba(0,241,94,0.3)")
+    val green10 = Color("rgba(0,241,94,0.1)")
+    val green05 = Color("rgba(0,241,94,0.05)")
+    val bg = Color("#080707")
+    val surface = Color("#232624")
+    val muted = Color("#87938C")
+    val muted40 = Color("rgba(135,147,140,0.4)")
+    val white = Color("#FAFAFA")
+    val red = Color("#BB3D3D")
+    val red05 = Color("rgba(187,61,61,0.05)")
+    val purple = Color("#7F52FF")
 
     init {
         // ── Reset & Base ────────────────────────────────────────────────────
@@ -29,7 +29,7 @@ object AppStyles : StyleSheet() {
             property("scroll-behavior", "smooth")
         }
         "body" style {
-            background(bg)
+            backgroundColor(bg)
             color(white)
             fontFamily("'Space Grotesk'", "sans-serif")
             property("overflow-x", "hidden")
@@ -39,9 +39,9 @@ object AppStyles : StyleSheet() {
 
         // Scrollbar
         "::-webkit-scrollbar" style { width(4.px) }
-        "::-webkit-scrollbar-track" style { background(bg) }
+        "::-webkit-scrollbar-track" style { backgroundColor(bg) }
         "::-webkit-scrollbar-thumb" style {
-            background(green30)
+            backgroundColor(green30)
             borderRadius(2.px)
         }
 
@@ -50,7 +50,7 @@ object AppStyles : StyleSheet() {
 
         ".wrap" style {
             maxWidth(780.px)
-            margin(0.px, autoLength)
+            property("margin", "0 auto")
             padding(80.px, 24.px, 48.px)
         }
 
@@ -59,14 +59,14 @@ object AppStyles : StyleSheet() {
             position(Position.Fixed)
             top(0.px); left(0.px); right(0.px)
             property("z-index", "100")
-            background("rgba(8,7,7,0.88)")
+            backgroundColor(Color("rgba(8,7,7,0.88)"))
             property("backdrop-filter", "blur(12px)")
-            borderBottom(1.px, LineStyle.Solid, "rgba(0,241,94,0.08)")
+            property("border-bottom", "1px solid rgba(0,241,94,0.08)")
             padding(0.px, 24.px)
         }
         ".nav-inner" style {
             maxWidth(780.px)
-            margin(0.px, autoLength)
+            property("margin", "0 auto")
             display(DisplayStyle.Flex)
             alignItems(AlignItems.Center)
             property("justify-content", "space-between")
@@ -95,7 +95,7 @@ object AppStyles : StyleSheet() {
         ".nav-dot" style {
             width(6.px); height(6.px)
             borderRadius(50.percent)
-            background(green)
+            backgroundColor(green)
             property("animation", "pulse 2s infinite")
         }
         "@keyframes pulse" style {}
@@ -104,7 +104,7 @@ object AppStyles : StyleSheet() {
         ".hero" style {
             property("text-align", "center")
             padding(56.px, 0.px, 36.px)
-            borderBottom(1.px, LineStyle.Solid, "rgba(0,241,94,0.12)")
+            property("border-bottom", "1px solid rgba(0,241,94,0.12)")
             position(Position.Relative)
         }
         ".hero-bg-glow" style {
@@ -113,7 +113,7 @@ object AppStyles : StyleSheet() {
             left(50.percent)
             property("transform", "translateX(-50%)")
             width(320.px); height(320.px)
-            background("radial-gradient(circle,rgba(0,241,94,0.07) 0%,transparent 70%)")
+            property("background", "radial-gradient(circle,rgba(0,241,94,0.07) 0%,transparent 70%)")
             property("pointer-events", "none")
         }
         ".cursor-line" style {
@@ -154,22 +154,22 @@ object AppStyles : StyleSheet() {
             marginTop(24.px)
         }
         ".soc" style {
-            display(DisplayStyle.InlineFlex)
+            display(DisplayStyle("inline-flex"))
             alignItems(AlignItems.Center)
             gap(6.px)
             padding(7.px, 16.px)
-            border(1.px, LineStyle.Solid, "rgba(0,241,94,0.25)")
+            border(1.px, LineStyle.Solid, Color("rgba(0,241,94,0.25)"))
             borderRadius(6.px)
             fontSize(12.px)
             fontWeight(500)
             color(muted)
-            background(green05)
+            backgroundColor(green05)
             property("transition", "all 0.2s")
         }
         ".soc:hover" style {
-            borderColor(green)
+            property("border-color", green)
             color(green)
-            background(green10)
+            backgroundColor(green10)
             property("transform", "translateY(-1px)")
         }
 
@@ -186,9 +186,9 @@ object AppStyles : StyleSheet() {
             fontSize(10.px)
             padding(3.px, 12.px)
             borderRadius(99.px)
-            border(1.px, LineStyle.Solid, "rgba(0,241,94,0.2)")
+            border(1.px, LineStyle.Solid, Color("rgba(0,241,94,0.2)"))
             color(green)
-            background(green05)
+            backgroundColor(green05)
             property("letter-spacing", "0.06em")
         }
 
@@ -212,7 +212,7 @@ object AppStyles : StyleSheet() {
             property("content", "''")
             property("flex", "1")
             height(1.px)
-            background("rgba(0,241,94,0.12)")
+            backgroundColor(Color("rgba(0,241,94,0.12)"))
         }
 
         // ── About ────────────────────────────────────────────────────────────
@@ -224,7 +224,7 @@ object AppStyles : StyleSheet() {
             display(DisplayStyle.Flex)
             gap(12.px)
             property("line-height", "1.6")
-            borderBottom(1.px, LineStyle.Solid, "rgba(135,147,140,0.08)")
+            property("border-bottom", "1px solid rgba(135,147,140,0.08)")
         }
         ".about-item:last-child" style { property("border-bottom", "none") }
         ".about-item strong, .about-item b" style {
@@ -257,28 +257,28 @@ object AppStyles : StyleSheet() {
             fontSize(11.px)
             padding(5.px, 11.px)
             borderRadius(5.px)
-            background(surface)
+            backgroundColor(surface)
             color(muted)
-            border(1.px, LineStyle.Solid, "rgba(135,147,140,0.18)")
+            border(1.px, LineStyle.Solid, Color("rgba(135,147,140,0.18)"))
             property("transition", "all 0.15s")
             property("cursor", "default")
         }
         ".chip:hover" style {
-            borderColor("rgba(135,147,140,0.4)")
+            property("border-color", "rgba(135,147,140,0.4)")
             color(white)
         }
         ".chip-green" style {
             color(green)
-            borderColor("rgba(0,241,94,0.28)")
-            background(green05)
+            property("border-color", "rgba(0,241,94,0.28)")
+            backgroundColor(green05)
         }
-        ".chip-green:hover" style { background(green10) }
+        ".chip-green:hover" style { backgroundColor(green10) }
         ".chip-purple" style {
             color(purple)
-            borderColor("rgba(127,82,255,0.28)")
-            background("rgba(127,82,255,0.05)")
+            property("border-color", "rgba(127,82,255,0.28)")
+            backgroundColor(Color("rgba(127,82,255,0.05)"))
         }
-        ".chip-purple:hover" style { background("rgba(127,82,255,0.1)") }
+        ".chip-purple:hover" style { backgroundColor(Color("rgba(127,82,255,0.1)")) }
 
         // ── Projects ─────────────────────────────────────────────────────────
         ".projects" style {
@@ -287,11 +287,11 @@ object AppStyles : StyleSheet() {
             gap(12.px)
         }
         ".proj" style {
-            background(surface)
-            border(1.px, LineStyle.Solid, "rgba(135,147,140,0.12)")
+            backgroundColor(surface)
+            border(1.px, LineStyle.Solid, Color("rgba(135,147,140,0.12)"))
             borderRadius(12.px)
             padding(16.px, 18.px)
-            borderLeft(3.px, LineStyle.Solid, green)
+            property("border-left", "3px solid $green")
             property("transition", "transform 0.2s, box-shadow 0.2s")
         }
         ".proj:hover" style {
@@ -310,8 +310,8 @@ object AppStyles : StyleSheet() {
             property("line-height", "1.65")
             marginBottom(10.px)
             padding(8.px, 12.px)
-            background(green05)
-            borderLeft(2.px, LineStyle.Solid, "rgba(0,241,94,0.2)")
+            backgroundColor(green05)
+            property("border-left", "2px solid rgba(0,241,94,0.2)")
             borderRadius(0.px, 5.px, 5.px, 0.px)
         }
         ".proj-badges" style {
@@ -325,24 +325,24 @@ object AppStyles : StyleSheet() {
             fontSize(10.px)
             padding(2.px, 9.px)
             borderRadius(3.px)
-            background("rgba(135,147,140,0.08)")
+            backgroundColor(Color("rgba(135,147,140,0.08)"))
             color(muted)
-            border(1.px, LineStyle.Solid, "rgba(135,147,140,0.13)")
+            border(1.px, LineStyle.Solid, Color("rgba(135,147,140,0.13)"))
         }
         ".badge-g" style {
-            background(green05)
+            backgroundColor(green05)
             color(green)
-            borderColor("rgba(0,241,94,0.22)")
+            property("border-color", "rgba(0,241,94,0.22)")
         }
         ".badge-p" style {
-            background("rgba(127,82,255,0.08)")
+            backgroundColor(Color("rgba(127,82,255,0.08)"))
             color(purple)
-            borderColor("rgba(127,82,255,0.22)")
+            property("border-color", "rgba(127,82,255,0.22)")
         }
         ".badge-r" style {
-            background(red05)
+            backgroundColor(red05)
             color(red)
-            borderColor("rgba(187,61,61,0.22)")
+            property("border-color", "rgba(187,61,61,0.22)")
         }
         ".proj-points" style { property("list-style", "none") }
         ".proj-point" style {
@@ -354,7 +354,7 @@ object AppStyles : StyleSheet() {
             property("line-height", "1.5")
         }
         ".proj-point::before" style {
-            property("content", "'›'")
+            property("content", "'\u203A'")
             color(green)
             fontFamily("'JetBrains Mono'", "monospace")
             property("flex-shrink", "0")
@@ -366,8 +366,8 @@ object AppStyles : StyleSheet() {
 
         // ── Code Block ───────────────────────────────────────────────────────
         ".code-block" style {
-            background(surface)
-            border(1.px, LineStyle.Solid, "rgba(135,147,140,0.12)")
+            backgroundColor(surface)
+            border(1.px, LineStyle.Solid, Color("rgba(135,147,140,0.12)"))
             borderRadius(10.px)
             padding(18.px)
             property("overflow-x", "auto")
@@ -390,7 +390,7 @@ object AppStyles : StyleSheet() {
         }
         ".kw" style { color(purple) }
         ".fn" style { color(green) }
-        ".str" style { color("rgba(0,241,94,0.65)") }
+        ".str" style { color(Color("rgba(0,241,94,0.65)")) }
         ".nm" style { color(white) }
 
         // ── Stats ────────────────────────────────────────────────────────────
@@ -400,8 +400,8 @@ object AppStyles : StyleSheet() {
             gap(10.px)
         }
         ".stat-card" style {
-            background(surface)
-            border(1.px, LineStyle.Solid, "rgba(135,147,140,0.12)")
+            backgroundColor(surface)
+            border(1.px, LineStyle.Solid, Color("rgba(135,147,140,0.12)"))
             borderRadius(10.px)
             padding(14.px, 16.px)
             property("text-align", "center")
@@ -421,7 +421,7 @@ object AppStyles : StyleSheet() {
             property("text-align", "center")
             marginTop(40.px)
             paddingTop(20.px)
-            borderTop(1.px, LineStyle.Solid, "rgba(0,241,94,0.08)")
+            property("border-top", "1px solid rgba(0,241,94,0.08)")
         }
         ".footer-views" style {
             fontFamily("'JetBrains Mono'", "monospace")
@@ -432,14 +432,14 @@ object AppStyles : StyleSheet() {
         ".footer-username" style { color(green) }
         ".footer-quote" style {
             fontSize(13.px)
-            color("rgba(135,147,140,0.5)")
+            color(Color("rgba(135,147,140,0.5)"))
             marginTop(10.px)
             fontStyle("italic")
         }
         ".footer-copy" style {
             fontFamily("'JetBrains Mono'", "monospace")
             fontSize(10.px)
-            color("rgba(135,147,140,0.3)")
+            color(Color("rgba(135,147,140,0.3)"))
             marginTop(14.px)
         }
 

@@ -46,6 +46,12 @@ jobs:
         with:
           path: build/dist/js/productionExecutable
 
+      - name: Build
+        run: ./gradlew clean jsBrowserDistribution --no-daemon
+
+      - name: List build files
+        run: ls -R build/
+
   deploy:
     environment:
       name: github-pages
